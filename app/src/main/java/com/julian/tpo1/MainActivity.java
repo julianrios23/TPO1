@@ -17,14 +17,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         //referencia al TextView
         airplaneModeReceiver = new AirplaneModeReceiver(tvAirplaneEstado);
 
         // broadcast dinámico
-        IntentFilter filter = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
-        registerReceiver(airplaneModeReceiver, filter);
+        IntentFilter x = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        registerReceiver(airplaneModeReceiver, x);
     }
 
     @Override

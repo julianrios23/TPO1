@@ -12,7 +12,7 @@
         android:id="@+id/TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TPO1"
+        android:text="Trabajo Practico O1"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         android:textStyle="bold"

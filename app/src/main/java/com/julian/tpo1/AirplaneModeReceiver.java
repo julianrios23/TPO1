@@ -33,10 +33,10 @@ public class AirplaneModeReceiver extends BroadcastReceiver {
 
 
             if (!isAirplaneModeOn) {
-                Intent llamar = new Intent(Intent.ACTION_DIAL);
-                llamar.setData(android.net.Uri.parse("tel:2664553747"));
-                llamar.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(llamar);
+                Intent marcar = new Intent(Intent.ACTION_DIAL);
+                marcar.setData(android.net.Uri.parse("tel:2664553747"));
+                marcar.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(marcar);
             }
         }
     }
