@@ -6,19 +6,17 @@ import android.content.Intent;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class AirplaneModeReceiver extends BroadcastReceiver {
-    private TextView tvEstado;
+public class AirplaneModeReceiverActivity extends BroadcastReceiver {
 
-    public AirplaneModeReceiver() {
+
+    public AirplaneModeReceiverActivity() {
     }
 
-    public AirplaneModeReceiver(TextView tvEstado) {
-        this.tvEstado = tvEstado;
-    }
+
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (Intent.ACTION_AIRPLANE_MODE_CHANGED.equals(intent.getAction())) {
+
             boolean isAirplaneModeOn = intent.getBooleanExtra("state", false);
 
             String mje = isAirplaneModeOn ?
@@ -26,10 +24,6 @@ public class AirplaneModeReceiver extends BroadcastReceiver {
                     "Modo Avión Desactivado";
 
             Toast.makeText(context, mje, Toast.LENGTH_SHORT).show();
-
-            if (tvEstado != null) {
-                tvEstado.post(() -> tvEstado.setText("Estado de modo avión: " + mje));
-            }
 
 
             if (!isAirplaneModeOn) {
@@ -39,6 +33,6 @@ public class AirplaneModeReceiver extends BroadcastReceiver {
                 context.startActivity(marcar);
             }
         }
-    }
+
 
 }

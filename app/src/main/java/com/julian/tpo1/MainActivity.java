@@ -8,9 +8,9 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
+    //private TextView tvEstado;
     private TextView tvAirplaneEstado;
-    private AirplaneModeReceiver airplaneModeReceiver;
+    private AirplaneModeReceiverActivity airplaneModeReceiverActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,17 +18,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //referencia al TextView
-        airplaneModeReceiver = new AirplaneModeReceiver(tvAirplaneEstado);
+        airplaneModeReceiverActivity = new AirplaneModeReceiverActivity();
 
         // broadcast dinámico
         IntentFilter x = new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED);
-        registerReceiver(airplaneModeReceiver, x);
+        registerReceiver(airplaneModeReceiverActivity, x);
     }
+
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         // evitar fugas de memoria
-        unregisterReceiver(airplaneModeReceiver);
+        unregisterReceiver(airplaneModeReceiverActivity);
     }
 }
